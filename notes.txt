@@ -1,0 +1,58 @@
+--> Api :- stand for Application Programming Interface .
+  It is a software intermediary thats alows two applications to talk each other.
+  It is a software which can be used by other software , to communicate with each other.It act as a bridge between 2 softwares.
+
+  --> Endpoint : It is a simple URL through which we can use an API.
+    http://localhost:7788/api/v1/auth 
+  -> types of APIs 
+     -> SOAP :- (simple object access protocol) it is a web api protocol which uses XML as the message formet to transfer data.
+     -> REST :- (Representational State Transfer) is a web api architecture.These are peimarily used to access and work with data and require minimum bandwidth . It support multiple formets such as JSON , XML , HTML and plain text.
+
+     npm install dotenv
+     -> Environmental Variables 
+       We can use these variables in any place in our code that will change based on the environment.
+       ->Scenarious 
+          -> Http port 
+          -> path and folder of files 
+          -> database url 
+          -> Development , staging , test , production 
+        .env 
+      -> Express Js Validation 
+         npm install express-validator --save 
+      --> JWT Token :- A JSON web token is JSON object which is used to securely transfer informations over the web(between two parties).It is generally used for authentication system and cal aslo be used for exchange information.
+        It is used to transfer data with encryption over the internet also these tokens can be more secured by using additional signature. 
+           These token consists of header JSON and payload JSON along with optional signature.
+          -> It can be used as credentials to grant permission to access server resources.
+            ** token is generate in backend 
+              npm install jsonwebtoken --save 
+            const jwt=require("jsonwebtoken");
+            jwt.sign(payload,secretkey,{expiresIn:"1h"})
+            -> payload : {data}
+            -> secretkey : unique key (not to disclose)
+            eg:
+             token=jwt.sign(
+                {userId:data._id,username:data.username},process.env.SECRET_KEY,{expiresIn:"1h"}
+             )
+                res.status(200).json({err:0,"msg":"Login Success",_token:token})
+          -> Task 
+             create a crud app in javascript with html and consume these all product APIs ?
+        
+          -> crud_app (fetch method)
+            http://localhost:8899/api/product/
+              index.html 
+                 Crud App 
+                 Add Data (adddata.html)
+                S.no  Name  City      Action 
+                1      a     noida     Delete 
+
+                npm install cors --save 
+                const cors=require('cors');
+
+                app.use(cors())
+          -> MongoDb Atlas 
+    --> Deploying Node Js Application 
+       --> We have a application 
+       ---> git installed 
+       --> git init 
+       -> .env file where we define our urls for different environment 
+       
